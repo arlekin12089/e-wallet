@@ -37,7 +37,25 @@ const handleChange = (e) => {
 	 alert("Max limit");
 	}
   };
-  
+
+
+  function splitNum (text, num){
+    let splitString = []
+    for(let i = 0; i < text.length; i+=num){
+      splitString.push(text.substring(i, i+num))
+    }
+    return splitString.join(" ");
+}
+
+
+  const inputCardChangeHandler = (e) => {
+    const propsName = e.target.name;
+    let propsValue = e.target.value.split(" ").join("");
+    const splitString = splitNum(propsValue, 4);
+    e.target.value = splitString;
+    setCard(propsName, propsValue);
+  };
+
 
 return(
 <div>
@@ -54,11 +72,13 @@ return(
 			<input 
 				type="text"  
 				id="cardNumber" 
+				name="cardNumber"
 				onChange={handleChange}
-            	maxLength="16"
+            	maxLength="19"
 				placeholder="XXXX XXXX XXXX XXXX"
-            	pattern="[0-9]{16}"
+            	// pattern="[0-9]{19}"
 				required
+				onInput={inputCardChangeHandler}
 			/>
 		</div>
 		<div className="form__field">
@@ -75,17 +95,18 @@ return(
 			<label>Valid thru</label>
 			<div className="cardTime">
 				<input 
-					type="number" 
+					type="text" 
 					id="month" 
 					value= {cardInfo.month} 
 					onChange={handleChange}
 					pattern="[0-9]{2}"
 					placeholder="MM"
 					maxLength="2"
+					max="2"
 					required
 					/>
 				<input 
-					type="number" 
+					type="text" 
 					id="year" 
 					value= {cardInfo.year} 
 					onChange={handleChange}
