@@ -1,46 +1,64 @@
-# Getting Started with Create React App and Redux
+Projektarbete - E-wallet
+Beskrivning: Du ska skapa en applikation där användaren kan hantera olika betalkort. Användaren ska kunna ha upp till max 4 kort, och måste alltid minst ha ett kort i sin e-wallet. Tekniker du ska använda i denna app är följande:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+●  React
 
-## Available Scripts
+●  State
 
-In the project directory, you can run:
+●  Redux
 
-### `yarn start`
+●  De-structuring
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+●  Array methods (t.ex map)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+●  React Router
 
-### `yarn test`
+●  Life Cycle Hooks (useEffect)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+●  API calls (VG)
 
-### `yarn build`
+Applikationen ska ha två routes (du får ändra namnet på dessa om du vill) :
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+/cards
+●  Högst upp ska du visa ett aktivt kort.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+●  Om användaren har fler kort, ska dessa finnas listade under det aktiva kortet.
 
-### `yarn eject`
+●  Det ska finnas en Add new card -knapp, som routar användaren vidare till /addcard.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+●  Vid klick på ett inaktivt kort i listan så ska den läggas som active card högst upp i vyn.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+/addcard
+●  Ett nytt kort ska kunna läggas till med följande information: Vendor, card number, cardholder, expire month, expire year, CCV. (Se bild nedan).
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+●  För kortutgivare ska du hårdkoda in minst tre alternativ man kan välja mellan. Den användaren väljer ska stå på kortet uppe till höger (t.ex. Mastercard, Visa, American Express etc. Eller om ni vill hitta på något roligare!).
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+●  Högst upp ska en förhandsvisning av kortet finnas, som uppdateras automatiskt när användare fyller i informationen.
 
-## Learn More
+Funktionella krav
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+För att få Godkänt ska du:
+●  Ha använt React och Redux för att lösa uppgiften.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+●  Lagt till grundläggande funktionalitet som att visa ut samtliga kort och lägga till betalkort.
+
+●  Det är en single file application (SPA) som använder react-router.
+
+●  Det ska finnas ett aktivt betalkort vid start av applikationen.
+
+För att få Väl Godkänt ska du:
+●  Gör ett API call vid start av applikationen, där du hämtar en slumpvald användare från följande API: https://randomuser.me/api/.
+
+●  Denna personens för och efternamn ska stå med stora bokstäver på samtliga kort som finns/skapas.
+
+●  Det ska gå att ta bort kort från listan. Det ska dock INTE vara möjligt att ta bort ett kort som är aktivt.
+
+●  Fälten när en kort läggs till ska valideras så att fältet kortnummer måste innehålla 16 siffror. Fältet för namn ska inte gå att fylla i, och förhandsvisningen av kortet ska istället alltid visa användarens namn som hämtats från API:et.
+
+●  Inga större bug
+
+<img width="1100" alt="Screenshot 2022-09-30 at 09 57 58" src="https://user-images.githubusercontent.com/22168037/193221466-38007125-ef05-4866-b011-0d0cd0f3192c.png">
+<img width="880" alt="Screenshot 2022-09-30 at 09 58 01" src="https://user-images.githubusercontent.com/22168037/193221469-4150e23f-3b63-4820-abc1-087076b2acff.png">
+<img width="970" alt="Screenshot 2022-09-30 at 09 58 54" src="https://user-images.githubusercontent.com/22168037/193221470-9fd4d362-df44-47f3-852c-ce1f94a45312.png">
+
