@@ -22,7 +22,7 @@ const Card = ({ card, user }) => {
         <img src={contactless} className="contactlessImg" alt="contactless" />
 		<div className="cardDetailsRight">
             <div>
-              {card?.vendor === "MasterCard" ? (
+              {card?.vendor === "Mastercard" ? (
                 <img src={mastercard} alt={`${card?.vendor} logo`} className="vendor-logo" />
               ) : card?.vendor === "visa" ? (
                 <img src={visa} alt={`${card?.vendor} logo`} className="vendor-logo" />

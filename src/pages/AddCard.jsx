@@ -17,7 +17,7 @@ const AddCard = () => {
 
 const [cardInfo, setCard] = useState({
 			cardNumber:'XXXX XXXX XXXX XXXX',
-			vendor:'MasterCard',
+			vendor:'Mastercard',
 			month: "MM",
 			year:'YY',
 			ccv: '',
@@ -52,6 +52,7 @@ const handleChange = (e) => {
     const propsName = e.target.name;
     let propsValue = e.target.value.split(" ").join("");
     const splitString = splitNum(propsValue, 4);
+
     e.target.value = splitString;
     setCard(propsName, propsValue);
   };
